@@ -28,6 +28,12 @@ entity Practitioner {
     areaOfEmployment String
 }
 
+entity Settings{
+name String
+status String
+}
+
+
 entity Qualification{
 	qualification String
     nameOfInstitute String
@@ -37,9 +43,6 @@ entity Qualification{
     wardedDate LocalDate
 }
 
-relationship ManyToOne {
-  Qualification{Practioner} to Practioner{Qualification}
-}
 
 enum Gender {
 MALE, FEMALE, UNKNOWN
@@ -65,7 +68,7 @@ paginate * with pagination
 // dto * with mapstruct
 
 // Set service options to all except few
-service all with serviceImpl except Location
+service all with serviceImpl except Settings
 
 // Set an angular suffix
 // angularSuffix * with mySuffix
